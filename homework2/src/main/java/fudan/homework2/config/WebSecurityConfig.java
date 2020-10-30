@@ -27,7 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 				// static resources
 				.antMatchers("/css/**", "/js/**", "/img/**", "/webjars/**", "/lib/**").permitAll().anyRequest()
-				.authenticated().and().formLogin().permitAll()
+				.authenticated().and().formLogin().loginPage("/login").permitAll()
 				.successHandler(new SavedRequestAwareAuthenticationSuccessHandler() {
 
 					public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
