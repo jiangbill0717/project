@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html layout:decorate="~{layout.html}" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" />
 <title>Title</title>
 </head>
 <body>
 
+ <div layout:fragment = "content">
 	<div class="row">
 		<div class="col-sm-8">
 			<form id="loginForm" th:action="@{/login}" method="POST">
@@ -32,6 +33,6 @@
 		
 		</div>
 	</div>
-
+</div>
 </body>
 </html>
