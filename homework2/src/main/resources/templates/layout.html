@@ -2,18 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org"
     xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     
-    <link type="stylesheet" th:ref="@{/webjars/bootswatch/4.4.1/dist/pulse/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootswatch/4.4.1/dist/pulse/bootstrap.min.css}"/>
     
 </head>
 <body>
-    <div th:include="header :: header"></div>
+    <div th:include="header :: header" th:remove="tag"></div>
     <div class="container" layout:fragment="content"></div>
-    <div th:include="footer :: footer"></div>
+    <!--   <div th:include="footer :: footer"></div> -->
 
 
-	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.min.js}"></script>
+	<script th:src="@{/webjars/jquery/3.5.1/dist/jquery.min.js}"></script>
+	
 </body>
 </html>
