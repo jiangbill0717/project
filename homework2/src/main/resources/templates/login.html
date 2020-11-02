@@ -9,6 +9,7 @@
  <div layout:fragment = "content">
 	<div class="row">
 		<div class="offset-3 col-sm-8">
+			<div class="offset-2" th:if="${param.error}" th:text="${session.SPRING_SECURITY_LAST_EXCEPTION.message}" style="color:red;"></div>
 			<form id="loginForm" th:action="@{/login}" method="POST">
 				<div class="form-group row">
 				 <label for="username" class="col-sm-2 col-form-lable">用户名：</label>
