@@ -1,0 +1,51 @@
+<assembly  
+    xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">  
+    <!-- ID,它会是后面生成的集合的名称的一部分，应该是后缀，前面会用这个工程的名字和版本，两个拼接在一块-->
+    <id>bin</id>
+    <!--格式，目标集合的格式，这个可以放多个 -->
+    <formats>
+        <format>tar.gz</format>  
+    </formats>
+    <!--不包含基本目录，基本目录是啥？就是当前工程的：artifactId-version
+     如果包含的话，那会再最上面建一层目录，你下面定义的所有的输入，都会在这个目录里面
+     感觉一般都不会这样做，感觉那样的名字不好，一般会希望自定义一个名字，我的做法就是
+     在下面所有的outputDirectory的路径前面加一个就行了。或者根本不需要
+     -->
+    <includeBaseDirectory>true</includeBaseDirectory>
+    <!--文件集合，定义多个集合，这个指的是源文件的集合，然后拷贝到目录目录-->
+    <fileSets>  
+        <fileSet>  
+            <directory>${project.basedir}/src/main/config</directory>    
+            <outputDirectory>/config</outputDirectory>
+            <includes>
+                <include>*.*</include>
+            </includes>
+        </fileSet>
+        <fileSet>  
+            <directory>${project.basedir}/src/main/resources/shell</directory>
+            <outputDirectory>/bin</outputDirectory>
+            <directoryMode>0775</directoryMode>
+            <fileMode>0764</fileMode>
+            <includes>
+            	<include>*.sh</include>
+            </includes>
+        </fileSet>
+		<fileSet>
+            <directory>${project.basedir}/src/main/resources</directory>
+            <outputDirectory>/logs</outputDirectory>
+            <directoryMode>0775</directoryMode>
+            <excludes><exclude>*/**</exclude></excludes>
+		</fileSet>
+		<fileSet>
+            <directory>${project.build.directory}</directory>
+            <outputDirectory>/</outputDirectory>
+            <directoryMode>0775</directoryMode>
+            <includes>
+            	<include>${project.build.finalName}.jar
+            	</include>
+            </includes>
+		</fileSet>
+    </fileSets>
+</assembly>
