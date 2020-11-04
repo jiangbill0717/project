@@ -13,10 +13,11 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav mr-auto" sec:authorize="isAuthenticated()">
-						<li class="nav-item"><a class="nav-link" th:href="@{/home}">Home</a>
+						<li class="nav-item"><a class="nav-link" th:href="@{/user}" sec:authorize="hasRole('user')">用户中心</a>
 						</li>
-						<li class="nav-item"><a class="nav-link" href="#">About</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Contact</a>
+						<li class="nav-item"><a class="nav-link" th:href="@{/admin}" sec:authorize="hasRole('admin')">管理中心</a>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="#">联系我们</a>
 						</li>
 					</ul>
 					<ul class="navbar-nav" sec:authorize="isAuthenticated()">

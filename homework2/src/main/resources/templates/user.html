@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html 
+	layout:decorate="~{layout.html}"
+	xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+ <head>
+ 	<link rel="stylesheet" type="text/css" th:href="@{webjars/datatables/1.10.21/css/jquery.dataTables.css}"/>
+ </head>
+<body>
+    
+    <div layout:fragment="content">
+    	<div class="card border-primary mb-3">
+		  <div class="card-header">书籍列表</div>
+		  <div class="card-body">
+		    <table id="table_id_example" class="display">
+			    <thead>
+			    <tr>
+			        <th>书名</th>
+			        <th>性别</th>
+			        <th>年龄</th>
+			    </tr>
+			    </thead>
+			    <tbody>
+			    <tr>
+			        <td>李四</td>
+			        <td>男</td>
+			        <td>12</td>
+			    </tr>
+			    <tr>
+			        <td>赵倩</td>
+			        <td>女</td>
+			        <td>18</td>
+			    </tr>
+			    <tr>
+			        <td>德川家康</td>
+			        <td>男</td>
+			        <td>100</td>
+			    </tr>
+			    <tr>
+			        <td>妲己</td>
+			        <td>女</td>
+			        <td>22</td>
+			    </tr>
+			    </tbody>
+			</table>
+
+		  </div>
+		</div>
+    </div>
+    
+    <div layout:fragment="script">
+    	<script type="text/javascript" th:src ="@{webjars/datatables/1.10.21/js/jquery.dataTables.min.js}"></script>
+ 		<script type="text/javascript" th:src ="@{js/user.js}"></script>
+    </div>
+</body>
+</html>
