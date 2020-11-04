@@ -2,7 +2,7 @@
 
 # Java ENV（此处需要修改，需要预先安装JDK）
 export JAVA_HOME=/home/ubuntu/jdk-15.0.1
-export JRE_HOME=${JAVA_HOME}/jre
+export JRE_HOME=${JAVA_HOME}/
 
 # Apps Info
 # 应用存放地址（此处需要修改）
