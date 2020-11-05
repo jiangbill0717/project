@@ -1,34 +1,145 @@
 <!DOCTYPE html>
-<html 
-	layout:decorate="~{layout.html}"
+<html layout:decorate="~{layout.html}"
 	xmlns:th="http://www.thymeleaf.org"
-    xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<link rel="stylesheet"
+	th:href="@{webjars/datatables.net-bs4/css/dataTables.bootstrap4.min.css}" />
+</head>
 <body>
-     <div layout:fragment="content">
-    	<div class="card border-primary mb-3">
-		  <div class="card-header">书籍列表</div>
-		  <div class="card-body">
-		    <table id="table_id_example" class="display">
-			    <thead>
-			    <tr>
-			        <th>序号</th>
-			        <th>书名</th>
-			        <th>出版社</th>
-			        <th>作者</th>
-			        <th>操作</th>
-			    </tr>
-			    </thead>
-			    <tbody>
-			    </tbody>
-			</table>
-
-		  </div>
+	<div layout:fragment="content">
+		<div class="card border-primary mb-3">
+			<div class="card-header">书籍列表</div>
+			<div class="card-body">
+				<table id="table_id_example"
+					class="table table-striped table-bordered w-100">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>书名</th>
+							<th>出版社</th>
+							<th>作者</th>
+							<th>数量</th>
+							<th>状态</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+				<div class="col-sm-12" align="right">
+					<button class="btn btn-primary btn-lg" data-toggle="modal"
+						data-target="#myModal">添加书籍</button>
+				</div>
+			</div>
 		</div>
-    </div>
-    
-    <div layout:fragment="script">
-    	<script type="text/javascript" th:src ="@{webjars/datatables/1.10.21/js/jquery.dataTables.min.js}"></script>
- 		<script type="text/javascript" th:src ="@{js/user.js}"></script>
-    </div>
+
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header" align="left">
+						<h6 class="modal-title" id="myModalLabel">书籍信息</h6>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group row">
+								<label class="col-sm-2 col-form-label">书名</label>
+								<div class="col-sm-3">
+									<input type="text" class="form-control" id="bookName" />
+								</div>
+								<label class="col-sm-2 col-form-label text-right">出版社</label>
+								<div class="col-sm-3">
+									<input type="text" class="form-control" id="press" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-sm-2 col-form-label">作者</label>
+								<div class="col-sm-3">
+									<input type="text" class="form-control" id="author" />
+								</div>
+								<label class="col-sm-2 col-form-label text-right">数量</label>
+								<div class="col-sm-3">
+									<input type="text" class="form-control" id="number" />
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+						</button>
+						<button type="button" class="btn btn-primary" id="addBook">添加</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+		
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="editModal" tabindex="-1" role="dialog"
+			aria-labelledby="editModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header" align="left">
+						<h6 class="modal-title" id="editModalLabel">书籍信息修改</h6>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group row">
+								<label class="col-sm-2 col-form-label">书名</label>
+								<div class="col-sm-3">
+									<input type="text" class="form-control" id="bookNameforedit" />
+								</div>
+								<label class="col-sm-2 col-form-label text-right">出版社</label>
+								<div class="col-sm-3">
+									<input type="text" class="form-control" id="pressforedit" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-sm-2 col-form-label">作者</label>
+								<div class="col-sm-3">
+									<input type="text" class="form-control" id="authorforedit" />
+								</div>
+								<label class="col-sm-2 col-form-label text-right">数量</label>
+								<div class="col-sm-3">
+									<input type="text" class="form-control" id="numberforedit" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-sm-2 col-form-label">状态</label>
+								 <div class="col-sm-3 form-group">
+							      <select class="form-control" id="status">
+							        <option value="1">正常</option>
+							        <option value="2">已出借</option>
+							        <option value="2">下架</option>
+							      </select>
+							    </div>
+							    <input type="hidden" id="idforedit" />
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+						</button>
+						<button type="button" class="btn btn-primary" id="editBook">修改</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+	</div>
+
+
+
+	<div layout:fragment="script">
+		<script type="text/javascript"
+			th:src="@{webjars/datatables.net/js/jquery.dataTables.min.js}"></script>
+		<script type="text/javascript"
+			th:src="@{webjars/datatables.net-bs4/js/dataTables.bootstrap4.min.js}"></script>
+		<script type="text/javascript" th:src="@{js/admin.js}"></script>
+	</div>
 </body>
 </html>

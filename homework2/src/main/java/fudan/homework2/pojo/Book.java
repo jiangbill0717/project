@@ -10,6 +10,10 @@ public class Book {
 	private String status;
 	
 	
+	public Book() {
+		super();
+	}
+
 	public Book(int id, String bookName, String press, String author, int number, String status) {
 		super();
 		this.id = id;

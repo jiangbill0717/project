@@ -91,11 +91,21 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
+		<!-- https://mvnrepository.com/artifact/org.webjars.bowergithub.datatables/dist-datatables -->
 		<dependency>
-		    <groupId>org.webjars</groupId>
-		    <artifactId>datatables</artifactId>
+		    <groupId>org.webjars.bowergithub.datatables</groupId>
+		    <artifactId>dist-datatables</artifactId>
 		    <version>1.10.21</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.webjars.bowergithub.datatables/dist-datatables-bootstrap4 -->
+		<dependency>
+		    <groupId>org.webjars.bowergithub.datatables</groupId>
+		    <artifactId>dist-datatables-bootstrap4</artifactId>
+		    <version>1.10.21</version>
+		</dependency>
+
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
