@@ -25,6 +25,9 @@ $(function(){
 		 },{
 			 "targets" : 6,
 			 "render" : function(data, type, row, meta){
+				 if(row.number <= 0){
+					return '<button type="button" class="btn btn-primary btn-sm" disabled onclick="borrow(\''+ row.id+'\')">借阅</button>';
+				 }
 				 return '<button type="button" class="btn btn-primary btn-sm" onclick="borrow(\''+ row.id+'\')">借阅</button>';
 			 }
 			 

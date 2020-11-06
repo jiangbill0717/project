@@ -21,7 +21,7 @@ public class BookService {
 	}
 	
 	public List<Book> getBooksWithNormalStatus(){
-		return bookDao.getAllBooks();
+		return bookDao.getBooksWithNormalStatus();
 	}
 	
 	public void insertBook(Book book) {
