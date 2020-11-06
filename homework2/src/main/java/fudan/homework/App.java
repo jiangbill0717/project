@@ -1,4 +1,4 @@
-package fudan.homework2;
+package fudan.homework;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

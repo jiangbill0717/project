@@ -1,4 +1,4 @@
-package fudan.homework2.service;
+package fudan.homework.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import fudan.homework2.dao.BookDao;
-import fudan.homework2.pojo.Book;
+import fudan.homework.dao.BookDao;
+import fudan.homework.pojo.Book;
 
 @Service
 public class BookService {

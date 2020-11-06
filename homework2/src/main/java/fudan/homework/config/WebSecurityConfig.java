@@ -1,4 +1,4 @@
-package fudan.homework2.config;
+package fudan.homework.config;
 
 import java.io.IOException;
 

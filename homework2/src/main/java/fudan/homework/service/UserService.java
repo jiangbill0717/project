@@ -1,12 +1,12 @@
-package fudan.homework2.service;
+package fudan.homework.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import fudan.homework2.dao.UserDao;
-import fudan.homework2.pojo.User;
+import fudan.homework.dao.UserDao;
+import fudan.homework.pojo.User;
 
 @Service
 public class UserService {

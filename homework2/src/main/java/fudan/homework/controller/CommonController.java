@@ -1,4 +1,4 @@
-package fudan.homework2.controller;
+package fudan.homework.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

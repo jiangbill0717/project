@@ -1,4 +1,4 @@
-package fudan.homework2.pojo;
+package fudan.homework.pojo;
 
 public class Book {
 

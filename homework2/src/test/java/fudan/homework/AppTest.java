@@ -1,4 +1,4 @@
-package fudan.homework2;
+package fudan.homework;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

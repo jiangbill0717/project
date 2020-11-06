@@ -1,4 +1,4 @@
-package fudan.homework2.controller;
+package fudan.homework.controller;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import fudan.homework2.pojo.Book;
-import fudan.homework2.service.BookService;
+import fudan.homework.pojo.Book;
+import fudan.homework.service.BookService;
 
 @Controller
 @RequestMapping("/user")

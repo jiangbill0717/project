@@ -1,4 +1,4 @@
-package fudan.homework2.dao;
+package fudan.homework.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import fudan.homework2.pojo.User;
+import fudan.homework.pojo.User;
 
 @Repository
 public class UserDao {
