@@ -3,8 +3,6 @@ package fudan.homework.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -17,13 +15,8 @@ public class UserDao {
 
 	private final static String GET_ALL_USER = "SELECT * FROM book_management_sys.b_user;"; 
 	
-	private NamedParameterJdbcTemplate jdbcTemplate;
-	
 	@Autowired
-	public void init(DataSource dataSource) {
-		this.jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
-	}
-	
+	private NamedParameterJdbcTemplate jdbcTemplate;
 	
 	public List<User> getAllUsers() {
 		List<User> users = new ArrayList<>();

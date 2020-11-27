@@ -24,9 +24,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.headers().frameOptions().sameOrigin();
 		http.cors().and().csrf().disable();
-		http.authorizeRequests()
+		http.authorizeRequests().antMatchers("/admin/**").hasRole("admin").antMatchers("/user/**").hasRole("user")
 				// static resources
-				.antMatchers("/css/**", "/js/**", "/img/**", "/webjars/**", "/lib/**").permitAll().anyRequest()
+				.antMatchers("/css/**", "/js/**", "/img/**", "/webjars/**", "/lib/**", "/actuator/**").permitAll()
+				.anyRequest()
 				.authenticated().and().formLogin().loginPage("/login").permitAll()
 				.successHandler(new SavedRequestAwareAuthenticationSuccessHandler() {
 

@@ -98,7 +98,6 @@ $("#addBook").click(function(){
 	$.ajax({
 		method : "POST",
 		url : "admin/book",
-		dataType : "json",
         contentType : 'application/json;charset=UTF-8',
 		data : JSON.stringify({
 			"bookName" : $("#bookName").val(),

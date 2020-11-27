@@ -7,8 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -48,12 +46,8 @@ public class BookDao {
 			":insert_user,\n" + 
 			":change_user)"; 
 	
-	private NamedParameterJdbcTemplate jdbcTemplate;
-	
 	@Autowired
-	public void init(DataSource dataSource) {
-		this.jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
-	}
+	private NamedParameterJdbcTemplate jdbcTemplate;
 	
 	public List<Book> getAllBooks(){
 		List<Book> users = new ArrayList<>();
