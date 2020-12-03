@@ -1,11 +1,13 @@
 package com.fudan.project.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * WebSocket 聊天消息类
  */
+@JsonIgnoreProperties
 public class Message {
 
     public static final String ENTER = "ENTER";
@@ -20,7 +22,12 @@ public class Message {
 
     private int onlineCount; //在线用户数
 
-    public static String jsonStr(String type, String username, String msg, int onlineTotal) {
+    public Message() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public static String jsonStr(String type, String username, String msg, int onlineTotal) {
         try {
 			return new ObjectMapper().writeValueAsString((new Message(type, username, msg, onlineTotal)));
 		} catch (JsonProcessingException e) {
