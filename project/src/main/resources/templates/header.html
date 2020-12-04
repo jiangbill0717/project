@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<div th:fragment="header">
+
+		<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+			<div class="container-fluid">
+				<a href="../" class="navbar-brand">登陆聊天</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarResponsive" aria-controls="navbarResponsive"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav mr-auto" sec:authorize="isAuthenticated()">
+						<li class="nav-item"><a class="nav-link" th:href="@{/user}" sec:authorize="hasRole('user')">用户中心</a>
+						</li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/admin}" sec:authorize="hasRole('admin')">管理中心</a>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="#">联系我们</a>
+						</li>
+					</ul>
+					<ul class="navbar-nav" sec:authorize="isAuthenticated()">
+						<li>
+							<button type="button" class="btn btn-outline-success" th:text="${session.SPRING_SECURITY_CONTEXT.authentication.principal.username}"></button>
+							<i type="button" class="fa fa-sign-out fa-3x" onclick="logout()" style="display:inline-block;color:red; text-align: center;vertical-align: bottom;"></i>
+						</li>
+					</ul>
+					<form th:action="@{logout}" id="logout"></form>
+				</div>
+			</div>
+		</nav>
+
+	</div>
+</body>
+</html>

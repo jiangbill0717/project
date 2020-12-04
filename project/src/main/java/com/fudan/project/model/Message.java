@@ -24,7 +24,6 @@ public class Message {
 
     public Message() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public static String jsonStr(String type, String username, String msg, int onlineTotal) {

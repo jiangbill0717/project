@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+          xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootswatch/4.4.1/dist/pulse/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/common.css}" />
+	<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <script th:src="@{/webjars/jquery/3.5.1/dist/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.min.js}"></script>
+    	
+    
+</head>
+<body>
+    <div th:include="header :: header" th:remove="tag"></div>
+    <div class="container" layout:fragment="content"></div>
+
+
+	<script th:src="@{/webjars/jquery/3.5.1/dist/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.min.js}"></script>
+	<script th:src="@{js/common.js}"></script>
+	<div layout:fragment="script" th:remove="tag"></div>
+</body>
+</html>

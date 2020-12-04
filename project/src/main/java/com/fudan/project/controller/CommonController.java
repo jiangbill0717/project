@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -16,11 +18,16 @@ public class CommonController {
 	/**
      * 登陆界面
      */
-    @GetMapping("/")
-    public ModelAndView login() {
-        return new ModelAndView("/login");
-    }
+	@RequestMapping("/")
+	public String home() {
+		return "index";
+	}
 
+	@GetMapping(value="/{pageId}")
+	public String defaultMapping(@PathVariable String pageId) {
+		return pageId;
+	}
+	
     /**
      * 聊天界面
      */

@@ -1,0 +1,12 @@
+body{
+	padding-top:120px;
+}
+
+.loader-inner{
+	position:fixed;
+	top:0;
+	right:0;
+	z-index:1031;
+	display:none;
+}
+
