@@ -10,18 +10,30 @@
     <link rel="stylesheet" th:href="@{/css/common.css}" />
 	<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     <script th:src="@{/webjars/jquery/3.5.1/dist/jquery.min.js}"></script>
-    <script th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.min.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.0.4/popper.js"></script>
+    <script th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.bundle.min.js}"></script>
     	
     
 </head>
 <body>
     <div th:include="header :: header" th:remove="tag"></div>
     <div class="container" layout:fragment="content"></div>
-
-
-	<script th:src="@{/webjars/jquery/3.5.1/dist/jquery.min.js}"></script>
-	<script th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.min.js}"></script>
+	<div class="col-sm-6" id="chatWindow" style="position:fixed;left:0px;bottom:0px;display:none">
+		<div class="card">
+		  <div class="card-body">
+		    <h4 class="card-title">聊天窗口</h4>
+		    <h6 class="card-subtitle mb-2 text-muted" id="targetUser"></h6>
+		    <div class="card-text" style="height:120px;overflow:auto;" id='personalMsg'></div>
+		    <div align="right" >
+		    	<textarea class="form-control" id="msgtext" rows="3"></textarea>
+		    	<button class="btn btn-primary" onclick="sendMsgToTarget()">发送</button>
+		    </div>
+		  </div>
+		</div>
+	</div>
+	
 	<script th:src="@{js/common.js}"></script>
+	<script th:src="@{js/chat.js}"></script>
 	<div layout:fragment="script" th:remove="tag"></div>
 </body>
 </html>

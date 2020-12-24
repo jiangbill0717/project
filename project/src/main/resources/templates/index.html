@@ -33,17 +33,25 @@
 				</div>
 			</div>
 
-			<div class="col-sm-6 row">
-				<div class="col-sm-6">
-					<i class="fa fa-user-o" aria-hidden="true"></i> <span>聊天内容</span>
-				</div>
-
-				<div class="col-sm-6">
-					<i class="fa fa-user" aria-hidden="true"></i> <span>在线人数</span> <span id="chat-num">0</span>
+			<div class="col-sm-6">
+				<div>
+					<ul class="nav nav-tabs">
+						<li class="nav-item"><a class="nav-link" data-toggle="tab"
+							href="#profile"><i class="fa fa-user-o" aria-hidden="true"></i>
+								<span>聊天内容</span></a></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
+							role="button" aria-haspopup="true" aria-expanded="false"><i
+								class="fa fa-user" aria-hidden="true"></i><span>在线人数</span> <span
+								id="chat-num">0</span></a>
+							<div id="userList" class="dropdown-menu">
+							</div>
+						</li>
+					</ul>
+					<!-- <i class="fa fa-user" aria-hidden="true"></i> <span>在线人数</span> <span id="chat-num">0</span>-->
 				</div>
 				<form id="message-container" class="col-sm"></form>
 			</div>
-			
 		</div>
 		<div layout:fragment="script">
 			<script type="text/javascript" th:src="@{js/index.js}"></script>
