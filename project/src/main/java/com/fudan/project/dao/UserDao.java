@@ -16,7 +16,7 @@ import com.fudan.project.model.Moment;
 @Repository
 public class UserDao {
 
-	private final static int PAGE_SIZE = 3;
+	private final static int PAGE_SIZE = 4;
 	
 	private final static String INSERT_MOMENT = "INSERT INTO `python_courses`.`moment`\n" + 
 			"(`username`,\n" + 
